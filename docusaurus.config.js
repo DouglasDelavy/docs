@@ -7,13 +7,14 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Oddo",
-  url: "https://your-docusaurus-test-site.com",
+  url: "https://OddoAkbar.github.io",
   baseUrl: "/",
   organizationName: "OddoAkbar",
   projectName: "docs",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
+  trailingSlash: false,
   i18n: {
     defaultLocale: "en",
     locales: ["en"],

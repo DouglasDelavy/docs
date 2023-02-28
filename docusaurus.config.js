@@ -38,7 +38,9 @@ const config = {
   ],
 
   themeConfig: {
-    defaultMode: "dark",
+    colorMode: {
+      defaultMode: "dark",
+    },
 
     navbar: {
       title: "Oddo",

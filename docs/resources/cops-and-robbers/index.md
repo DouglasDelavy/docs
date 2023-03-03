@@ -33,6 +33,8 @@ Alternatively, you can go to https://keymaster.fivem.net/asset-grants and downlo
 ensure cops-and-robbers
 ```
 
+3. In game you can use `cops_and_robbers` command to open Matchmaking UI.
+
 ---
 
 ## Configuration
@@ -323,6 +325,26 @@ Localization are used to all text in this resource.
 3. Start your translation.
 
 Also you can change the current locale in `config.lua`, see [`Configuration`](#configuration)
+
+---
+
+## Client exports
+
+### `displayMatchmaking`
+
+Display Matchmaking UI
+
+```lua
+exports['cops-and-robbers']:displayMatchmaking()
+```
+
+### `hideMatchmaking`
+
+Hide Matchmaking UI
+
+```lua
+exports['cops-and-robbers']:displayMatchmaking()
+```
 
 ---
 

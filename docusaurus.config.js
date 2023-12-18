@@ -8,8 +8,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Oddo",
   url: "https://douglasdelavy.github.io",
-  baseUrl: "/docs/",
-  organizationName: "OddoAkbar",
+  baseUrl: "/",
+  organizationName: "DouglasDelavy",
   projectName: "docs",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
@@ -27,7 +27,7 @@ const config = {
           path: "docs",
           routeBasePath: "/",
           sidebarPath: require.resolve("./sidebars.js"),
-          editUrl: "https://github.com/OddoAkbar/docs/tree/main",
+          editUrl: "https://github.com/douglasdelavy/docs/tree/main",
         },
         blog: false,
         theme: {
@@ -56,7 +56,7 @@ const config = {
           label: "Resources",
         },
         {
-          href: "https://github.com/OddoAkbar",
+          href: "https://github.com/douglasdelavy",
           label: "GitHub",
           position: "right",
         },

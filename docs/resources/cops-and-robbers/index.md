@@ -133,86 +133,15 @@ ESX support is still a work in progress. You can stay tuned to Discord channels 
 
 ---
 
-## How to add a new Map
+## How to use Editor
 
-1. Create a JSON file inside the `data/maps` folder, for example, `data/maps/shop_02.json`.
+We create a great editor for edit maps, weapons groups, outfits and much more
 
-2. Start editing your map following the [`Map structure`](#map-file-structure).
+1. First we need configurate your permissions to open editor. See [How to management permissions](#how-to-management-permissions)
 
-3. Include your map in the `fxmanifest.lua`, in the `include_maps` section.
+2. Now you can use this command to open Editor UI `cops_and_robbers editor`
 
-```lua
-include_maps {
-  'shop_01',
-  'shop_02' -- Registering new map
-}
-```
-
-### Map file structure
-
-```json title=shop_02.json
-{
-  "id": "shop_02", // contains one indentifier (needs to be the same as the file name)
-  "type": "store", // contains one map type, see `How to add a new Map Type`
-  "cameras": [
-    {
-      "name": "DEFAULT_SCRIPTED_CAMERA",
-      "coords": { "x": 0.0, "y": 0.0, "z": 0.0 },
-      "rotation": { "x": 0.0, "y": 0.0, "z": 0.0 },
-      "fov": 65.0
-    }
-  ],
-  "weather": {
-    "schedules": [
-      { "hours": 15, "minutes": 0 },
-      { "hours": 21, "minutes": 0 }
-    ], // possible schedules (randomized)
-    "weathersType": ["RAIN", "CLEAR"] // possible weathers type
-  },
-  "vehicles": [
-    {
-      "model": "riot", // vehicle model (akuma, riot, etc)
-      "type": "automobile", // vehicle type (automobile, bike, boat, etc)
-      "coords": { "x": 0.0, "y": 0.0, "z": 0.0 }, // vehicle spawn coords
-      "heading": 0.0 // vehicle spawn heading
-    }
-  ],
-  "teams": [
-    {
-      "type": "COPS",
-      "spawn": [
-        {
-          "coords": { "x": 0.0, "y": 0.0, "z": 0.0 }, // player spawn coords
-          "heading": 0.0, // player spawn heading
-          "animation": {
-            "dictionary": "oddjobs@shop_robbery@rob_till",
-            "name": "loop",
-            "blendInSpeed": 4.0,
-            "blendOutSpeed": 4.0,
-            "flags": 1
-          } // animation is optional
-        }
-      ]
-    },
-    {
-      "type": "ROBBERS",
-      "spawn": [
-        {
-          "coords": { "x": 0.0, "y": 0.0, "z": 0.0 }, // player spawn coords
-          "heading": 0.0, // player spawn heading
-          "animation": {
-            "dictionary": "oddjobs@shop_robbery@rob_till",
-            "name": "loop",
-            "blendInSpeed": 4.0,
-            "blendOutSpeed": 4.0,
-            "flags": 1
-          } // animation is optional
-        }
-      ]
-    }
-  ]
-}
-```
+3. Thats it for more examples see [Editor](#editor) section
 
 ---
 
@@ -235,7 +164,7 @@ Map types are used for filtering maps in the matchmaking system. Players can sel
 
 ## How to add new Weapons
 
-You can add news weapons to the game.
+You can add new weapons to the game. This resource have all GTA weapons added.
 
 1. Add weapon icon inside folder `data/weapons/icons`, example: `data/weapons/icons/weapon_dagger.png`
 
@@ -246,69 +175,6 @@ You can add news weapons to the game.
   "id": "weapon_dagger", // weapon name
   "type": "MELLE_WEAPON", // weapon type (MELLE_WEAPON, SHORT_WEAPON, LONG_WEAPON, THROWABLE, MISC)
   "icon": "weapon_dagger.png" // icon filename added in `data/weapons/icons/`
-}
-```
-
----
-
-## How to add a new Weapon Group
-
-Weapon groups declare the weapons that can be used in the match.
-
-1. Go to `data/weapons/groups` folder and create a new json file.
-
-2. Add in json file your configuration, example:
-
-```json title="pistol.json"
-{
-  "id": "pistol_rifle", // identifier (needs to be the same as filename)
-  "weapons": [
-    [
-      {
-        "id": "weapon_pistol", // weapon id defined in `data/weapons/weapons.json`.
-        "ammo": 200 // ammo (optional)
-      },
-      {
-        "id": "weapon_assaultrifle",
-        "ammo": 200
-      }
-    ]
-  ]
-}
-```
-
-3. Add your weapon group to be included in `fxmanifest.lua` on `include_weapon_groups` section.
-
-```lua
-include_weapon_groups {
-  "pistol",
-  "rifle",
-  "pistol_rifle" -- Registering new weapon group
-}
-```
-
----
-
-## How to add a new Outfit
-
-Outfits are used the define appearance of player according team type
-
-1. Go to `data/outfits` folder and create a new json file.
-
-2. Add in json file your configurations, example:
-
-```json title="mp_male_cop_02.json"
-{
-  "type": "COPS", // team type to defined this outfit (COPS, ROBBERS)
-  "model": "mp_m_freemode_01", // ped model can use this outfit (mp_m_freemode_01, mp_f_freemode_01, ...)
-  "components": [
-    { "drawable": 52, "component_id": 1, "texture": 0 },
-    { "drawable": 17, "component_id": 3, "texture": 0 }
-  ],
-  "props": [
-    { "prop_id": 0, "drawable": 141, "index": 0 },
-    { "prop_id": 1, "drawable": 1, "index": 0 }
-  ]
 }
 ```
 
@@ -325,6 +191,35 @@ Localization are used to all text in this resource.
 3. Start your translation.
 
 Also you can change the current locale in `config.lua`, see [`Configuration`](#configuration)
+
+---
+
+## How to management permissions
+
+Permissions are used in editor.
+
+We use permission system provided by Fivem, see this forum post [`Basic Aces & Principals overview/guide`](https://forum.cfx.re/t/basic-aces-principals-overview-guide/90917) for more information about how to use this permissions.
+
+But here have a quick setup:
+
+1. First you need add permission to user like in above example. Remember change XXXXXX to you steam HEX
+
+```cfg
+add_principal identifier.steam:XXXXXX group.admin
+```
+
+2. Add Permission to you group to access Cops and Robbers.
+
+```cfg
+# Cops and robbers editor
+add_ace group.admin "cops_and_robbers.editor" allow
+```
+
+---
+
+## Editor
+
+Editor section
 
 ---
 
@@ -448,6 +343,22 @@ Triggered when stop spectating
 
 ```lua
 AddEventHandler("copsandrobbers:stopSpectating", function() end)
+```
+
+### `copsandrobbers:editor:started`
+
+Triggered when start editor
+
+```lua
+AddEventHandler("copsandrobbers:editor:started", function() end)
+```
+
+### `copsandrobbers:editor:stopped`
+
+Triggered when stop editor
+
+```lua
+AddEventHandler("copsandrobbers:editor:stopped", function() end)
 ```
 
 ---

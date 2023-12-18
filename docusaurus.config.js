@@ -7,8 +7,8 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "Oddo",
-  url: "https://OddoAkbar.github.io",
-  baseUrl: "/",
+  url: "https://douglasdelavy.github.io",
+  baseUrl: "/docs/",
   organizationName: "OddoAkbar",
   projectName: "docs",
   onBrokenLinks: "throw",

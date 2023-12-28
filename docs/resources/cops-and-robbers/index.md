@@ -162,19 +162,55 @@ Map types are used for filtering maps in the matchmaking system. Players can sel
 
 ---
 
-## How to add new Weapons
+## How to add new Items
 
-You can add new weapons to the game. This resource have all GTA weapons added.
+You can add new items to the game such weapons, armour, throwable and more.
 
-1. Add weapon icon inside folder `data/weapons/icons`, example: `data/weapons/icons/weapon_dagger.png`
+1. First we need declare item in `data/items/items.json`.
 
-2. Add weapon data in `data/weapons/weapons.json`.
-
-```json title="weapons.json"
+```json title="items.json"
 {
-  "id": "weapon_dagger", // weapon name
-  "type": "MELLE_WEAPON", // weapon type (MELLE_WEAPON, SHORT_WEAPON, LONG_WEAPON, THROWABLE, MISC)
-  "icon": "weapon_dagger.png" // icon filename added in `data/weapons/icons/`
+  "name": "PISTOL", // Item name used with locale system
+  "hash": "WEAPON_PISTOL", // Item hash (if is a weapon or throwable needs to be same hash)
+  "type": "SHORT_WEAPON", // Item type (MELLE_WEAPON | SHORT_WEAPON | LONG_WEAPON | THROWABLE)
+  "icon": "data/items/icons/weapon_pistol.png", // Icon path
+  "model": "w_pi_pistol", // Item model to be created in world
+  "droppable": true, // Is able to drop this item
+},
+```
+
+2. Right now we need to add one icon. Put this icon inside `data/items/icons`, example: `data/items/icons/weapon_dagger.png`
+
+---
+
+## How to add new items in Item Shop
+
+You can add new items in item shop. Follow this steps
+
+1. Go to file `data/items/item-shop.json`
+
+Item shop file have a categories and items inside every category, you can create a new category or edit a added category.
+
+2. To add a new item in some category only need define a price and item hash, like that.
+
+```json title="item-shop.json"
+{
+  "categories": [
+    {
+      "name": "PISTOLS", // Category name
+      "items": [
+        // Category items
+        {
+          "hash": "WEAPON_PISTOL", // Item hash
+          "price": 200 // Item price
+        },
+        {
+          "hash": "WEAPON_PISTOL_MK2", // Item hash
+          "price": 300 // Item price
+        }
+      ]
+    }
+  ]
 }
 ```
 

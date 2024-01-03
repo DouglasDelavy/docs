@@ -33,7 +33,7 @@ Alternatively, you can go to https://keymaster.fivem.net/asset-grants and downlo
 ensure cops-and-robbers
 ```
 
-3. In game you can use `cops_and_robbers` command to open Matchmaking UI.
+3. In game you can use `cops_and_robbers` command to enter in game menu, also you can use exports provided by this resource too.
 
 ---
 
@@ -261,20 +261,20 @@ Editor section
 
 ## Client exports
 
-### `displayMatchmaking`
+### `enterInGameScene`
 
-Display Matchmaking UI
+Enter in game menu
 
 ```lua
-exports['cops-and-robbers']:displayMatchmaking()
+exports['cops_and_robbers']:enterInGameScene()
 ```
 
-### `hideMatchmaking`
+### `enterInEditorScene`
 
-Hide Matchmaking UI
+Enter in editor
 
 ```lua
-exports['cops-and-robbers']:displayMatchmaking()
+exports['cops_and_robbers']:enterInEditorScene()
 ```
 
 ---
@@ -405,7 +405,7 @@ AddEventHandler("copsandrobbers:editor:stopped", function() end)
 
 ```lua
 ---@param fn A function that is executed when get player name
-exports['cops-and-robbers']:getPlayerNameCallback(function(playerServerId)
+exports['cops_and_robbers']:getPlayerNameCallback(function(playerServerId)
   -- TODO
 end)
 ```

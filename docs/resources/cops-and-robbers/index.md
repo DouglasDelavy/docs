@@ -25,12 +25,12 @@ Alternatively, you can go to https://keymaster.fivem.net/asset-grants and downlo
 
 ### Setting up
 
-1. Extract the `cops-and-robbers.pack.zip` file to a folder called `cops-and-robbers` inside your resources folder.
+1. Extract the `cops_and_robbers.pack.zip` file to a folder called `cops_and_robbers` inside your resources folder.
 
 2. Add the following to your `server.cfg` to start the resource.
 
 ```cfg
-ensure cops-and-robbers
+ensure cops_and_robbers
 ```
 
 3. In game you can use `cops_and_robbers` command to enter in game menu, also you can use exports provided by this resource too.
